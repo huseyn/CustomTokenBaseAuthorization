@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using src.web.filters;
+using src.web.Models.Claims;
 
 namespace src.web.Controllers
 {
@@ -24,6 +26,7 @@ namespace src.web.Controllers
         }
 
         [HttpGet]
+        [Auth(Claims.GET)]
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
